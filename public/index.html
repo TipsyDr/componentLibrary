@@ -1,17 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+    <title><%= htmlWebpackPlugin.options.title || 百度贴吧 %></title>
+    <!-- 雷达接入 -->
+    <script type="text/javascript" id="radar-script"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 适配部分 -->
+    <script type="text/javascript" src=""></script>
+    <script>
+    function getClientWidth() {
+        return window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+    }
+
+    (function (baseWidth) {
+        var clientWidth = getClientWidth();
+        baseWidth = baseWidth || 414;
+        var win = window;
+        var doc = win.document.documentElement;
+        var dpr = win.devicePixelRatio || 1;
+        var rem;
+
+        function refreshRem() {
+            clientWidth = getClientWidth();
+            rem = (clientWidth / baseWidth) * 100;
+            rem = clientWidth < 360 ? rem * .9 : rem;
+            rem = Math.min(rem, 150);
+            doc.style.fontSize = rem + 'px';
+        }
+        doc.setAttribute('data-ckdpr', Math.round(dpr));
+        doc.setAttribute('data-dpr', 1);
+        var timeouter = null;
+        win.addEventListener('resize', function () {
+            clearTimeout(timeouter),
+            timeouter = setTimeout(refreshRem, 300);
+        },
+        false);
+        win.addEventListener('pageshow', function (a) {
+            win.persisted && (clearTimeout(timeouter), timeouter = setTimeout(refreshRem, 300));
+        },
+        false);
+        refreshRem();
+    })();
+    </script>
+</head>
+<script>window.radar && window.radar.mark('ht');</script>
+<body>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    <script type="text/javascript" id="radar-sdk-script"></script>
+</body>
 </html>
