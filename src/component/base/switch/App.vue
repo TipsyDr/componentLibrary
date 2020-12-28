@@ -81,8 +81,8 @@ export default defineComponent({
 	position: absolute;
 	left: 0.02rem;
 	top: 50%;
-	width: 0.24rem;
-	height: 0.24rem;
+	width: 0.25rem;
+	height: 0.25rem;
 	margin-top: -25%;
 	border-radius: 0.14rem;
 	background: rgba(255, 255, 255);
