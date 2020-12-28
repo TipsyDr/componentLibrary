@@ -4,9 +4,11 @@
  */
 import ZSwitch from './component/base/switch';
 import Toast from './component/base/toast';
+import Swiper from './component/base/swiper';
 
 const components: any = {
-    ZSwitch
+    ZSwitch,
+    Swiper
 };
 
 // @ts-ignore
