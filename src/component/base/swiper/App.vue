@@ -73,7 +73,7 @@ interface Swiper {
 	handleChangeCurrantIndex: (num: number) => void;
 }
 export default defineComponent({
-	name: "Swiper",
+	name: "ZSwiper",
 	props: {
 		count: {
 			type: Number,

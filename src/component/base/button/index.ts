@@ -1,5 +1,5 @@
 /**
- * @file 安装Swiper组件
+ * @file button组件
  */
 import Component from './App.vue';
 

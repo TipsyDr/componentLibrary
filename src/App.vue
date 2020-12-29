@@ -1,19 +1,20 @@
 <template>
 	<div id="app">
-		<img alt="Vue logo" src="./assets/logo.png" />
-		<z-switch @change="handleChange"></z-switch>
-		<swiper :count=3>
+		<z-swiper :count=3>
 			<slot slot="swiper-item" v-for="(item, index) in swiperData">
                 <div :key="index" style="width:100%;height: 200px;overflow: hidden;">
 					<img :src="item.src" width="100%">
 				</div>
             </slot>
-		</swiper>
+		</z-swiper>
+		<z-switch @change="handleChange"></z-switch>
+		<z-button></z-button>
 	</div>
 </template>
 
 <script lang="ts">
 import { toRefs, defineComponent, reactive, watch } from "@vue/composition-api";
+import button from "./component/base/button/button.vue";
 import Toast from "./component/base/toast/Toast.vue";
 
 export default defineComponent({

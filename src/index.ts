@@ -2,13 +2,16 @@
  * @file 注册所有的组件库
  * @author zhuxiaohan
  */
-import ZSwitch from './component/base/switch';
+
 import Toast from './component/base/toast';
-import Swiper from './component/base/swiper';
+import ZSwitch from './component/base/switch';
+import ZSwiper from './component/base/swiper';
+import ZButton from './component/base/button';
 
 const components: any = {
     ZSwitch,
-    Swiper
+    ZSwiper,
+    ZButton
 };
 
 // @ts-ignore
