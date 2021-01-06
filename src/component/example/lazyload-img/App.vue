@@ -1,45 +1,30 @@
 <template>
-	<div class="lazyload-img" v-lazy>
-		<img src="./img/1.png" width="100%" />
-		<img src="./img/2.png" width="100%" />
-		<img src="./img/3.png" width="100%" />
-		<img src="./img/4.png" width="100%" />
-		<img src="./img/5.png" width="100%" />
-		<img src="./img/6.png" width="100%" />
-		<img src="./img/7.png" width="100%" />
-		<img src="./img/8.png" width="100%" />
+	<div class="lazyload-img">
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/1.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/2.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/3.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/4.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/5.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/6.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/7.png')" width="100%" />
+		<img class="lazy" src="@/assets/img/error.jpg" :lazy="require('@/assets/img/8.png')" width="100%" />
 	</div>
 </template>
 
 <script lang="ts">
 import {
-	toRefs,
 	defineComponent,
-	reactive,
-	computed,
 	onMounted,
-	Ref,
-	onBeforeUnmount,
 } from "@vue/composition-api";
+import lazyLoad from "./lazyload";
+
 
 export default defineComponent({
 	name: "LazyLoadImg",
-	setup(props, context) {
-		const state = reactive({
-
+	setup() {
+		onMounted(() => {
+			lazyLoad({});
 		});
-		const handleClick = (evt: any) => {
-			context.emit("click", evt);
-		};
-
-		onMounted(() => {});
-
-		onBeforeUnmount(() => {});
-
-		return {
-			...toRefs(state),
-			handleClick,
-		};
 	},
 });
 </script>

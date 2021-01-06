@@ -1,9 +1,5 @@
 <template>
-	<span
-		class="switch"
-		:class="{ 'switch-on': isChecked }"
-		@click="toggle"
-	>
+	<span class="switch" :class="{ 'switch-on': isChecked }" @click="toggle">
 	</span>
 </template>
 
@@ -11,25 +7,24 @@
 import { toRefs, defineComponent, reactive, watch } from "@vue/composition-api";
 
 interface Props {
-    checked?: boolean;
+	value?: boolean;
 }
 interface ZSwitch {
-    isChecked: boolean;
-    toggle: () => void;
+	isChecked: boolean;
+	toggle: () => void;
 }
-
 
 export default defineComponent({
 	name: "ZSwitch",
 	props: {
-		checked: {
+		value: {
 			type: Boolean,
 			default: false,
 		},
 	},
 	setup(props, context) {
 		const state = reactive({
-			isChecked: props.checked,
+			isChecked: props.value,
 		});
 		// 改变组件的的状态
 		const toggle = () => {
