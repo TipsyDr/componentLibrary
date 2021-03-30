@@ -66,7 +66,7 @@ export function dropDownRefresh(option: any) {
             let range = 0;
 
             // 触摸开始
-            page.addEventListener('touchstart', function (e: { touches: { pageY: number; }[]; }) {
+            page.addEventListener('touchstart', function (e: { touches: { pageY: number; }[] }) {
                 startDistance = e.touches[0].pageY;
                 scrollTop = 1;
                 setAnimation(0);
