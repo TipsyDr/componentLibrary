@@ -1,10 +1,10 @@
 <template>
 	<button
+		:type="nativeType"
 		class="z-button"
 		@click="handleClick"
 		:disabled="disabled || loading"
 		:autofocus="autofocus"
-		:type="nativeType"
 		:class="[
 			type ? 'z-button--' + type : '',
 			size ? 'z-button--' + size : '',
